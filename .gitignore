@@ -1,0 +1,15 @@
+# dependencies
+node_modules
+.env
+
+# testing
+coverage
+
+# production
+bundle.js
+
+# misc
+*/.DS_Store
+
+# log
+npm-debug.log*

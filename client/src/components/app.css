@@ -1,12 +1,59 @@
+body {
+  font-family: 'Comfortaa', cursive;
+}
+
 .center {
   text-align: center;
   margin: auto;
 }
 
-.top-vh-lg {
-  margin-top: 30vh;
-}
-
 .top-vh-md {
   margin-top: 10vh;
+}
+
+.top-vh-sm {
+  margin-top: 5vh;
+}
+
+.border-btm {
+  border-bottom: 3px solid;
+  border-color: black;
+}
+
+.border-right {
+  border-right: 3px solid;
+  border-color: black;
+}
+
+.grid {
+  padding: 40px;
+  font-size: 25px;
+}
+
+.fa-times {
+  font-size: 35px;
+  color: #8114f4;
+}
+
+.fa-circle {
+  font-size: 35px;
+  color: #05ae52;
+}
+
+.btn-clear {
+  color: #ffffff;
+  background: #371a00;
+  margin-top: 20px;
+}
+
+.status {
+  margin-top: 20px;
+  font-size: 40px;
+  color: #04fdaa;
+}
+
+.btn-refresh {
+  color: #ffffff;
+  background: #360557;
+  margin-top: 20px;
 }

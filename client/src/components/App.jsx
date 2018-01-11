@@ -21,7 +21,6 @@ class App extends Component {
     }
 
     this.getInitialState = this.getInitialState.bind(this);
-    this.handleInput = this.handleInput.bind(this);
     this.playerTurn = this.playerTurn.bind(this);
     this.markBoard = this.markBoard.bind(this);
     this.winCondition = this.winCondition.bind(this);
@@ -46,15 +45,6 @@ class App extends Component {
     }
   }
 
-  handleInput(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    this.setState({
-      [name]: value,
-    })
-  }
-
   playerTurn() {
     if (this.state.player === 1) {
       this.setState({
@@ -70,61 +60,57 @@ class App extends Component {
   }
 
   markBoard(value) {
-    if (this.state[value] === 'X' || this.state[value] === 'O') {
+    const location = this.state[value];
+
+    if (location === 'X' || location === 'O') {
       alert(`${value} is already marked pick another location`);
     } else {
 
       this.setState({
         [value]: this.state.mark,
         count: this.state.count+1,
-      })
-      this.winCondition();
-      this.playerTurn();
+      }, this.winCondition);
     }
   }
 
   winCondition() {
-    console.log('in win condition', this.state[1], this.state[2], this.state[3]);
+    console.log(this.state, this.state.mark)
     if (this.state[1] === this.state.mark && this.state[2] === this.state.mark && this.state[3] === this.state.mark ) {
       this.setState({
         winner: true
-      })
-    }
-    if (this.state[4] === this.state.mark && this.state[5] === this.state.mark && this.state[6] === this.state.mark ) {
+      });
+    } else if (this.state[4] === this.state.mark && this.state[5] === this.state.mark && this.state[6] === this.state.mark ) {
       this.setState({
         winner: true
-      })
-    }
-    if (this.state[7] === this.state.mark && this.state[8] === this.state.mark && this.state[9] === this.state.mark ) {
+      });
+    } else if (this.state[7] === this.state.mark && this.state[8] === this.state.mark && this.state[9] === this.state.mark ) {
       this.setState({
         winner: true
-      })
-    }
-    if (this.state[1] === this.state.mark && this.state[4] === this.state.mark && this.state[7] === this.state.mark ) {
+      });
+    } else if (this.state[1] === this.state.mark && this.state[4] === this.state.mark && this.state[7] === this.state.mark ) {
       this.setState({
         winner: true
-      })
-    }
-    if (this.state[2] === this.state.mark && this.state[5] === this.state.mark && this.state[8] === this.state.mark ) {
+      });
+    } else if (this.state[2] === this.state.mark && this.state[5] === this.state.mark && this.state[8] === this.state.mark ) {
       this.setState({
         winner: true
-      })
-    }
-    if (this.state[3] === this.state.mark && this.state[6] === this.state.mark && this.state[9] === this.state.mark ) {
+      });
+    } else if (this.state[3] === this.state.mark && this.state[6] === this.state.mark && this.state[9] === this.state.mark ) {
       this.setState({
         winner: true
-      })
-    }
-    if (this.state[1] === this.state.mark && this.state[5] === this.state.mark && this.state[9] === this.state.mark ) {
+      });
+    } else if (this.state[1] === this.state.mark && this.state[5] === this.state.mark && this.state[9] === this.state.mark ) {
       this.setState({
         winner: true
-      })
-    }
-    if (this.state[3] === this.state.mark && this.state[5] === this.state.mark && this.state[7] === this.state.mark ) {
+      });
+    } else if (this.state[3] === this.state.mark && this.state[5] === this.state.mark && this.state[7] === this.state.mark ) {
       this.setState({
         winner: true
-      })
+      });
+    } else {
+      this.playerTurn();
     }
+
   }
 
   clearBoard() {
